@@ -1,5 +1,5 @@
 import React from 'react';
-import { WEEK_DAY_STRINGS, MONTH_STRINGS } from './constants';
+import { WEEK_DAY_STRINGS, MONTH_STRINGS, WEATHER_COLORS } from './constants';
 import Image from './Image';
 
 const transformDate = dateStr => {
@@ -13,7 +13,7 @@ const transformDate = dateStr => {
 export default function ForecastRow({ data }) {
 	const { weekDay, month, dayOfTheMonth } = transformDate(data.applicable_date);
 	return (
-		<div className={`forecast-row ${data.weather_state_name}`}>
+		<div className={`forecast-row ${WEATHER_COLORS[data.weather_state_name]}`}>
 			<div className='date'>
 				<div className='date__weekday'>{weekDay}</div>
 				<div className='date__day-and-month'>{`${dayOfTheMonth} ${month}`}</div>

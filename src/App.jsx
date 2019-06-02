@@ -9,10 +9,7 @@ export default function App() {
 	useEffect(() => {
 		fetch(`${BYPASS_CORS}https://www.metaweather.com/api/location/${MOSCOW}/`)
 			.then(resp => resp.json())
-			.then(resp => {
-				console.log(resp);
-				setData(resp);
-			});
+			.then(resp => setData(resp));
 	}, []);
 
 	return (

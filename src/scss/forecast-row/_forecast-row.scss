@@ -15,19 +15,19 @@
 	@media (max-width: 768px) {
 		border-bottom: none;
 	}
-	&.Clear {
+	&--clear {
 		background-color: #c88c3233;
 	}
-	&.Heavy.Cloud {
+	&--heavy-cloud {
 		background-color: #dddcdc33;
 	}
-	&.Showers {
+	&--showers {
 		background: linear-gradient(to right, #00697d33, #c88c3233);
 	}
-	&.Light.Rain {
+	&--light-rain {
 		background-color: #00697d33;
 	}
-	&.Light.Cloud {
+	&--light-cloud {
 		background: linear-gradient(to right, #dddcdc33, #c88c3233);
 	}
 }
