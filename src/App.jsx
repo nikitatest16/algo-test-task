@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { MOSCOW, BYPASS_CORS } from './constants';
 import ForecastRow from './ForecastRow';
 import PulseLoader from 'react-spinners/PulseLoader';
@@ -6,11 +6,23 @@ import PulseLoader from 'react-spinners/PulseLoader';
 export default function App() {
 	const [data, setData] = useState(null);
 
-	useEffect(() => {
-		fetch(`${BYPASS_CORS}https://www.metaweather.com/api/location/${MOSCOW}/`)
-			.then(resp => resp.json())
-			.then(resp => setData(resp));
+	const fetchData = useCallback(async () => {
+		try {
+			const data = await fetch(`${BYPASS_CORS}https://www.metaweather.com/api/location/${MOSCOW}/`);
+			if (data.ok) {
+				const weatherData = await data.json();
+				setData(weatherData);
+			} else {
+				throw new Error('Unable to get data. Please refresh.');
+			}
+		} catch (error) {
+			alert(error.message);
+		}
 	}, []);
+
+	useEffect(() => {
+		fetchData();
+	}, [fetchData]);
 
 	return (
 		<>
