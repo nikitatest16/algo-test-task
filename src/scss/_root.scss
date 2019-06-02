@@ -1,0 +1,9 @@
+#root {
+	padding: 5vh 0;
+	display: flex;
+	flex-flow: column nowrap;
+	min-height: 100vh;
+	@media (max-width: 414px) {
+		padding: 4vh 0;
+	}
+}

@@ -1,0 +1,33 @@
+.forecast-row {
+	display: flex;
+	justify-content: space-between;
+	padding: 5vh 10vw;
+	border-bottom: 1px solid #0202021a;
+	&:first-child {
+		border-top: 1px solid #0202021a;
+		@media (max-width: 768px) {
+			border-top: none;
+		}
+	}
+	@media (max-width: 1024px) {
+		padding: 3vh 10vw;
+	}
+	@media (max-width: 768px) {
+		border-bottom: none;
+	}
+	&.Clear {
+		background-color: #c88c3233;
+	}
+	&.Heavy.Cloud {
+		background-color: #dddcdc33;
+	}
+	&.Showers {
+		background: linear-gradient(to right, #00697d33, #c88c3233);
+	}
+	&.Light.Rain {
+		background-color: #00697d33;
+	}
+	&.Light.Cloud {
+		background: linear-gradient(to right, #dddcdc33, #c88c3233);
+	}
+}
